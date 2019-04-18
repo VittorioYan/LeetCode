@@ -4,7 +4,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution29 solution = new Solution29();
+        Solution28 solution = new Solution28();
         int[] nums = {0,1};
         //int[] strs={-1, 0, 1, 2, -1, -4};
         int target=3;
@@ -15,7 +15,8 @@ public class Main {
 //        listNode.next.next.next.next=new ListNode(5);
 //        listNode.next.next.next.next.next=new ListNode(6);
 
-        int result=solution.divide(2147483647,3);
+        int result=solution.strStr( "mississippi"
+                ,"issip");
 
 //        ListNode result=solution.reverseKGroup(listNode,3);
         System.out.println(result);
