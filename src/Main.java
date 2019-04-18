@@ -15,8 +15,8 @@ public class Main {
 //        listNode.next.next.next.next=new ListNode(5);
 //        listNode.next.next.next.next.next=new ListNode(6);
 
-        int result=solution.strStr( "mississippi"
-                ,"issip");
+        int result=solution.strStr( "hello"
+                ,"ll");
 
 //        ListNode result=solution.reverseKGroup(listNode,3);
         System.out.println(result);
