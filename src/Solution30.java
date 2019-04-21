@@ -9,6 +9,8 @@ class Solution30 {
         Arrays.sort(words);
         int sLen=s.length();
         int wordsLen=words.length;
+        if(sLen==0)return result;
+        if(wordsLen==0)return result;
         int[] requireNum=new int[wordsLen];
 
         String replacement="";
@@ -26,7 +28,7 @@ class Solution30 {
                     requireNum[i-1]++;
                     j++;
                 }
-                i=j;
+                i=j-1;
                 continue;
 
             }
@@ -41,7 +43,7 @@ class Solution30 {
             }
         }
         List<Integer> newIndex=new ArrayList<>();
-        boolean addflag=false;
+        boolean addflag=true;
         int pointer=0;
         for(int i=0;i<sLen;i++){
             if(sIndex[i]>=0){
@@ -58,35 +60,54 @@ class Solution30 {
 
             }
         }
-        int right=wordsLen;
+        int nowNum=0;
+        int aimIndex=0;
         int sum=0;
-        for(int i=0;i<wordsLen;i++){
-            if(newIndex.get(i)>0){
-                int nowIndex=newIndex.get(i);
-                if(corres.containsKey(nowIndex)){
-                        int nowSum=corres.get(nowIndex)+1;
-                        corres.put(nowIndex,nowSum);
-                    if(corres.get(nowIndex)==requireNum[nowIndex]){
-                        sum++;
-                    }
+        for(int i=0;i<newIndex.size();i++){
 
-                }
-                else {
-                    corres.put(nowIndex,1);
+            if(newIndex.get(i)<0){
+                aimIndex-=newIndex.get(i);
+                sum=0;
+                nowNum=0;
+                corres.clear();
+                continue;
+            }
+
+            int nowIndex=newIndex.get(i);
+
+            if(corres.containsKey(nowIndex)){
+                int nowSum=corres.get(nowIndex)+1;
+                corres.put(nowIndex,nowSum);
+                if(nowSum<=requireNum[nowIndex]){
                     sum++;
                 }
 
             }
-            if(newIndex.get(i)<0){
+            else {
+                    corres.put(nowIndex,1);
+                    sum++;
+            }
+            aimIndex+=wordLen;
+            nowNum++;
+
+            if(nowNum>wordsLen){
+                int nowIndex1=newIndex.get(i-wordsLen);
+                int nowSum=corres.get(nowIndex1)-1;
+
+                if(nowSum>=1){
+                    if((nowSum<requireNum[nowIndex1]))sum--;
+                    corres.put(nowIndex1,nowSum-1);
+                }
+                else{
+                    corres.remove(nowIndex1);
+                    sum--;
+                }
 
             }
+            if(sum==wordsLen)result.add(aimIndex-wordsLen*wordLen);
+
+
         }
-        while(right<newIndex.size()){
-
-        }
-
-
-
 
         return result;
 
