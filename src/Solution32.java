@@ -7,20 +7,24 @@ class Solution32 {
         int index=0;
         int[] bracketNum=new int[n];
         int bracketsPoint=s.indexOf("()");
-        while(bracketsPoint!=-1){
-            if(bracketsPoint<=minFlag){
-                minFlag=bracketsPoint;
-                nowMax+=2;
-
-            }
-            else{
-                result=result>nowMax?result:nowMax;
-                nowMax=0;
-                minFlag=bracketsPoint;
-                continue;
-            }
-            s=s.replaceFirst("\\(\\)","");
-            bracketsPoint=s.indexOf("()");
+//        while(bracketsPoint!=-1){
+//            if(bracketsPoint<=minFlag){
+//                minFlag=bracketsPoint;
+//                nowMax+=2;
+//
+//            }
+//            else{
+//                result=result>nowMax?result:nowMax;
+//                nowMax=0;
+//                minFlag=bracketsPoint;
+//                continue;
+//            }
+//            s=s.replaceFirst("\\(1*\\)","11");
+//            bracketsPoint=s.indexOf("()");
+//        }
+        while(!s.matches("^.*\\(1*\\)")){
+            s=s.replaceFirst("\\(1*\\)","11");
+            //bracketsPoint=s.indexOf("()");
         }
         result=result>nowMax?result:nowMax;
 

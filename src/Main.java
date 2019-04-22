@@ -4,8 +4,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution32 solution = new Solution32();
-        int[] nums = {1,5,1};
+        Solution38 solution = new Solution38();
+        int[] nums = {};
         int target=3;
 //        ListNode listNode=new ListNode(1);
 //        listNode.next=new ListNode(2);
@@ -14,7 +14,7 @@ public class Main {
 //        listNode.next.next.next.next=new ListNode(5);
 //        listNode.next.next.next.next.next=new ListNode(6);
         String[] strs ={"aa","aa","aa"};
-        int result=solution.longestValidParentheses("()(())");
+        String result=solution.countAndSay(4);
 
 
 
