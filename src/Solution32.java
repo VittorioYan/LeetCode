@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class Solution32 {
     public int longestValidParentheses(String s) {
         int result=0;
@@ -7,11 +10,11 @@ class Solution32 {
         int index=0;
         int[] bracketNum=new int[n];
         int bracketsPoint=s.indexOf("()");
-//        while(bracketsPoint!=-1){
+        List<Integer> replaceIndex=new ArrayList<>();
+        while(bracketsPoint!=-1){
 //            if(bracketsPoint<=minFlag){
 //                minFlag=bracketsPoint;
 //                nowMax+=2;
-//
 //            }
 //            else{
 //                result=result>nowMax?result:nowMax;
@@ -19,12 +22,9 @@ class Solution32 {
 //                minFlag=bracketsPoint;
 //                continue;
 //            }
-//            s=s.replaceFirst("\\(1*\\)","11");
-//            bracketsPoint=s.indexOf("()");
-//        }
-        while(!s.matches("^.*\\(1*\\)")){
-            s=s.replaceFirst("\\(1*\\)","11");
-            //bracketsPoint=s.indexOf("()");
+            replaceIndex.add(bracketsPoint);
+            s=s.replaceFirst("\\(\\)","");
+            bracketsPoint=s.indexOf("()");
         }
         result=result>nowMax?result:nowMax;
 
