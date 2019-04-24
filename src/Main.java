@@ -13,7 +13,7 @@ public class Main {
 //        listNode.next.next.next.next=new ListNode(5);
 //        listNode.next.next.next.next.next=new ListNode(6);
         String[] strs ={"aa","aa","aa"};
-        int result=solution.longestValidParentheses("()(((()))()");
+        int result=solution.longestValidParentheses("(()");
 
 
 
