@@ -4,8 +4,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution39 solution = new Solution39();
-        int[] nums = {2,3,6,7};
+        Solution43 solution = new Solution43();
+        int[] nums = {};
 //        ListNode listNode=new ListNode(1);
 //        listNode.next=new ListNode(2);
 //        listNode.next.next=new ListNode(3);
@@ -23,7 +23,7 @@ public class Main {
                 {'.','6','.','.','.','.','2','8','.'},
                 {'.','.','.','4','1','9','.','.','5'},
                 {'.','.','.','.','8','.','.','7','9'}};
-        List<List<Integer>> result=solution.combinationSum(nums,7);
+        String result=solution.multiply("100","2580");
 
 
 

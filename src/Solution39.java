@@ -6,16 +6,14 @@ class Solution39 {
     List<List<Integer>> result;
     void dp(LinkedList<Integer> route,int target,int[] nums,int point){
         if(target==0){
-            LinkedList<Integer> temp=new LinkedList<>();
-            temp=route;
-            result.add(temp);
+            result.add(new LinkedList<>(route));
             route.pollLast();
             return;
         }
         int n=nums.length;
         for(int i=point;i<n;i++){
             if(nums[i]<=target){
-                LinkedList<Integer> temp=route;
+                LinkedList<Integer> temp=new LinkedList<>(route);
                 temp.add(nums[i]);
                 dp(temp,target-nums[i],nums,i);
             }
