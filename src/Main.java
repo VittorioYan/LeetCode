@@ -4,7 +4,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution43 solution = new Solution43();
+        Solution44 solution = new Solution44();
         int[] nums = {};
 //        ListNode listNode=new ListNode(1);
 //        listNode.next=new ListNode(2);
@@ -23,7 +23,7 @@ public class Main {
                 {'.','6','.','.','.','.','2','8','.'},
                 {'.','.','.','4','1','9','.','.','5'},
                 {'.','.','.','.','8','.','.','7','9'}};
-        String result=solution.multiply("100","2580");
+        boolean result=solution.isMatch("","****");
 
 
 
