@@ -4,8 +4,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution44 solution = new Solution44();
-        int[] nums = {};
+        Solution36 solution = new Solution36();
+        int[] nums = {2,3,1,1,4};
 //        ListNode listNode=new ListNode(1);
 //        listNode.next=new ListNode(2);
 //        listNode.next.next=new ListNode(3);
@@ -14,7 +14,7 @@ public class Main {
 //        listNode.next.next.next.next.next=new ListNode(6);
         String[] strs ={"aa","aa","aa"};
         char[][] sudu={
-                {'5','3','.','.','7','.','.','.','.'},
+                {'8','3','.','.','7','.','.','.','.'},
                 {'6','.','.','1','9','5','.','.','.'},
                 {'.','9','8','.','.','.','.','6','.'},
                 {'8','.','.','.','6','.','.','.','3'},
@@ -23,7 +23,7 @@ public class Main {
                 {'.','6','.','.','.','.','2','8','.'},
                 {'.','.','.','4','1','9','.','.','5'},
                 {'.','.','.','.','8','.','.','7','9'}};
-        boolean result=solution.isMatch("","****");
+        boolean result=solution.isValidSudoku(sudu);
 
 
 
