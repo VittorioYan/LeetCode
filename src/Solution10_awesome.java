@@ -1,4 +1,4 @@
-class Solution10_handsome {
+class Solution10_awesome {
     public boolean isMatch(String s, String p) {
         if(s==null || p==null)return false;
         char[] sc=s.toCharArray();

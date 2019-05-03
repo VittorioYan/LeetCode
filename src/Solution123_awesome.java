@@ -1,4 +1,4 @@
-public class Solution123_handsome {
+public class Solution123_awesome {
     public int maxProfit(int[] prices) {
         int fstBuy = Integer.MIN_VALUE, fstSell = 0;
         int secBuy = Integer.MIN_VALUE, secSell = 0;

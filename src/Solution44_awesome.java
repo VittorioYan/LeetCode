@@ -1,4 +1,4 @@
-class Solution44_handsome {
+class Solution44_awesome {
     public boolean isMatch(String s, String p) {
         if(s==null||p==null)return false;
         p=p.replaceAll("\\*+","*");

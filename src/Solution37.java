@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 class Solution37 {
@@ -31,6 +32,51 @@ class Solution37 {
                 isExist(everyIsExist.get(nineNo),board[i][j]));
     }
 
+    boolean dp(char[][] board,int i,int j){
+        if(i==-1)return true;
+        char temp;
+        int nineNo=whichNine(i,j);
+        int nextI=-1,nextJ=-1;
+        for (int jj=j+1;jj<9;jj++){
+            if (board[i][jj] == '.') {
+                nextI = i;
+                nextJ = jj;
+                break;
+            }
+        }
+        for(int ii=i+1;ii<9;ii++) {
+            if (nextI == -1) {
+                for (int jj = 0; jj < 9; jj++) {
+                    if (board[ii][jj] == '.') {
+                        nextI = ii;
+                        nextJ = jj;
+                        break;
+                    }
+                }
+            }else break;
+        }
+        for(int k=1;k<=9;k++){
+            temp=(char)(k+'0');
+            if(!(isExist(horIsExist.get(i),temp)||
+                    isExist(verIsExist.get(j),temp)||
+                    isExist(everyIsExist.get(nineNo),temp))){
+                horIsExist.get(i).add(temp);
+                verIsExist.get(j).add(temp);
+                everyIsExist.get(nineNo).add(temp);
+                board[i][j]=temp;
+                if(dp(board,nextI,nextJ))return true;
+                else {
+                    horIsExist.get(i).remove(horIsExist.get(i).size()-1);
+                    verIsExist.get(j).remove(verIsExist.get(j).size()-1);
+                    everyIsExist.get(nineNo).remove(everyIsExist.get(nineNo).size()-1);
+                    board[i][j]='.';
+                }
+            }
+
+        }
+        return false;
+    }
+
     public void solveSudoku(char[][] board) {
         char[][] newBoard=new char[9][9];
         for(int i=0;i<9;i++){
@@ -49,24 +95,17 @@ class Solution37 {
                 }
             }
         }
-
-    }
-    void dp(char[][] board,int I,int J){
-        for(int i=I;i<9;i++){
-            for(int j=J;j<9;j++){
-                if(board[i][j]=='.'){
-                    int nineNo=whichNine(i,j);
-                    for(int k=1;k<=9;k++){
-                        if(!(isExist(horIsExist.get(i),board[i][j])||
-                                isExist(verIsExist.get(j),board[i][j])||
-                                isExist(everyIsExist.get(nineNo),board[i][j]))){
-
-                        }
-                    }
+        for(int i=0;i<9;i++){
+            for(int j=0;j<9;j++){
+                if(board[i][j]=='.') {
+                    dp(board,i,j);
+                    return;
                 }
-
             }
         }
 
+
+
     }
+
 }
