@@ -4,7 +4,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution66 solution = new Solution66();
+        Solution67 solution = new Solution67();
         int[] nums = {};
         ListNode listNode=new ListNode(1);
         listNode.next=null;
@@ -29,7 +29,7 @@ public class Main {
                 {1,0}
 
         };
-        int[] result=solution.plusOne(nums);
+        String result=solution.addBinary("11","1");
 
 //        ListNode result=solution.reverseKGroup(listNode,3);
         System.out.println(result);
