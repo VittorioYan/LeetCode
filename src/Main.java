@@ -4,7 +4,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution61 solution = new Solution61();
+        Solution66 solution = new Solution66();
         int[] nums = {};
         ListNode listNode=new ListNode(1);
         listNode.next=null;
@@ -25,19 +25,11 @@ public class Main {
                 {'.','.','.','.','8','.','.','7','9'}};
 
         int[][] martix={
-                {1,5},
-//                {3,5},
-//                {6,7},
-//                {8,10},
-//                {12,16}
+                {0,1},
+                {1,0}
 
-//                {2,4,8,10},
-//                {13, 3, 6, 7},
-//                {15,14,12,16}
         };
-        ListNode result=solution.rotateRight(listNode,4);
-//        double result=solution.myPow(1.0000000001,Integer.MAX_VALUE);
-
+        int[] result=solution.plusOne(nums);
 
 //        ListNode result=solution.reverseKGroup(listNode,3);
         System.out.println(result);
