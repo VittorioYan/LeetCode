@@ -4,7 +4,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution67 solution = new Solution67();
+        Solution64 solution = new Solution64();
         int[] nums = {};
         ListNode listNode=new ListNode(1);
         listNode.next=null;
@@ -25,11 +25,12 @@ public class Main {
                 {'.','.','.','.','8','.','.','7','9'}};
 
         int[][] martix={
-                {0,1},
-                {1,0}
+                {1,3,1},
+                {4,5,1},
+//                {4,2,1}
 
         };
-        String result=solution.addBinary("11","1");
+        int result=solution.minPathSum(martix);
 
 //        ListNode result=solution.reverseKGroup(listNode,3);
         System.out.println(result);
