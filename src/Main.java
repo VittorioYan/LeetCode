@@ -4,7 +4,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution64 solution = new Solution64();
+        Solution71 solution = new Solution71();
         int[] nums = {};
         ListNode listNode=new ListNode(1);
         listNode.next=null;
@@ -30,7 +30,9 @@ public class Main {
 //                {4,2,1}
 
         };
-        int result=solution.minPathSum(martix);
+        String[] strings={"Listen","to","many,","speak","to","a","few."
+        };
+        String result=solution.simplifyPath("/.../a/ddd/../");
 
 //        ListNode result=solution.reverseKGroup(listNode,3);
         System.out.println(result);
