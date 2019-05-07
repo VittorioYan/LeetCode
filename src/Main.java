@@ -4,7 +4,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution70 solution = new Solution70();
+        Solution64 solution = new Solution64();
         int[] nums = {};
         ListNode listNode=new ListNode(1);
         listNode.next=null;
@@ -30,7 +30,7 @@ public class Main {
 //                {4,2,1}
 
         };
-        int result=solution.climbStairs(5);
+        int result=solution.minPathSum(martix);
 
 //        ListNode result=solution.reverseKGroup(listNode,3);
         System.out.println(result);
