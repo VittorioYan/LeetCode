@@ -4,8 +4,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution71 solution = new Solution71();
-        int[] nums = {};
+        Solution77 solution = new Solution77();
+        int[] nums = {2,0,2,1,1,0};
         ListNode listNode=new ListNode(1);
         listNode.next=null;
 //        listNode.next.next=new ListNode(3);
@@ -25,17 +25,19 @@ public class Main {
                 {'.','.','.','.','8','.','.','7','9'}};
 
         int[][] martix={
-                {1,3,1},
-                {4,5,1},
+                {}
+//                {1,   3,  5,  7},
+//                {10, 13, 15, 20},
+//                {23, 30, 34, 50}
 //                {4,2,1}
 
         };
         String[] strings={"Listen","to","many,","speak","to","a","few."
         };
-        String result=solution.simplifyPath("/.../a/ddd/../");
+        List<List<Integer>> result=solution.combine(1,1);
 
 //        ListNode result=solution.reverseKGroup(listNode,3);
-        System.out.println(result);
+//        System.out.println(result);
 
 
     }
