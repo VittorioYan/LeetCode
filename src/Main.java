@@ -4,8 +4,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution77 solution = new Solution77();
-        int[] nums = {2,0,2,1,1,0};
+        Solution80 solution = new Solution80();
+        int[] nums = {0,0,1,1,1,1,2,3,3};
         ListNode listNode=new ListNode(1);
         listNode.next=null;
 //        listNode.next.next=new ListNode(3);
@@ -14,15 +14,10 @@ public class Main {
 //        listNode.next.next.next.next.next=null;
         String[] strs ={"ate"};
         char[][] sudu={
-                {'5','3','.','.','7','.','.','.','.'},
-                {'6','.','.','1','9','5','.','.','.'},
-                {'.','9','8','.','.','.','.','6','.'},
-                {'8','.','.','.','6','.','.','.','3'},
-                {'4','.','.','8','.','3','.','.','1'},
-                {'7','.','.','.','2','.','.','.','6'},
-                {'.','6','.','.','.','.','2','8','.'},
-                {'.','.','.','4','1','9','.','.','5'},
-                {'.','.','.','.','8','.','.','7','9'}};
+                {'A','B','C','E'},
+                {'S','F','C','S'},
+                {'A','D','E','E'},
+                };
 
         int[][] martix={
                 {}
@@ -34,10 +29,10 @@ public class Main {
         };
         String[] strings={"Listen","to","many,","speak","to","a","few."
         };
-        List<List<Integer>> result=solution.combine(1,1);
+        int result=solution.removeDuplicates(nums);
 
 //        ListNode result=solution.reverseKGroup(listNode,3);
-//        System.out.println(result);
+        System.out.println(result);
 
 
     }
