@@ -4,7 +4,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution81 solution = new Solution81();
+        Solution76 solution = new Solution76();
         int[] nums = {1,1,3};
 //        ListNode listNode=new ListNode(1);
 //        listNode.next=new ListNode(1);
@@ -29,7 +29,7 @@ public class Main {
         };
         String[] strings={"Listen","to","many,","speak","to","a","few."
         };
-        boolean result=solution.search(nums,1);
+        String result=solution.minWindow("ab","b");
 
 //        ListNode result=solution.reverseKGroup(listNode,3);
         System.out.println(result);
