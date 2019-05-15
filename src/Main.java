@@ -4,7 +4,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution76 solution = new Solution76();
+        Solution72 solution = new Solution72();
         int[] nums = {1,1,3};
 //        ListNode listNode=new ListNode(1);
 //        listNode.next=new ListNode(1);
@@ -29,7 +29,7 @@ public class Main {
         };
         String[] strings={"Listen","to","many,","speak","to","a","few."
         };
-        String result=solution.minWindow("ab","b");
+        int result=solution.minDistance("","a");
 
 //        ListNode result=solution.reverseKGroup(listNode,3);
         System.out.println(result);
