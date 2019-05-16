@@ -4,8 +4,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution72 solution = new Solution72();
-        int[] nums = {1,1,3};
+        Solution84 solution = new Solution84();
+        int[] nums = {2,1,5,6,2,3};
 //        ListNode listNode=new ListNode(1);
 //        listNode.next=new ListNode(1);
 //        listNode.next.next=new ListNode(1);
@@ -29,7 +29,7 @@ public class Main {
         };
         String[] strings={"Listen","to","many,","speak","to","a","few."
         };
-        int result=solution.minDistance("","a");
+        int result=solution.largestRectangleArea(nums);
 
 //        ListNode result=solution.reverseKGroup(listNode,3);
         System.out.println(result);
