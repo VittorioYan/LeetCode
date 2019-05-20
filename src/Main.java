@@ -4,13 +4,13 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution91 solution = new Solution91();
-        int[] nums = {0};
+        Solution92 solution = new Solution92();
+        int[] nums = {1,1};
         int[] nums1 = {};
-        ListNode listNode=new ListNode(4);
-//        listNode.next=new ListNode(4);
-//        listNode.next.next=new ListNode(3);
-//        listNode.next.next.next=new ListNode(2);
+        ListNode listNode=new ListNode(1);
+        listNode.next=new ListNode(2);
+        listNode.next.next=null;
+//        listNode.next.next.next=new ListNode(4);
 //        listNode.next.next.next.next=new ListNode(5);
 //        listNode.next.next.next.next.next=new ListNode(2);
 //        listNode.next.next.next.next.next.next=null;
@@ -32,7 +32,7 @@ public class Main {
         };
         String[] strings={"Listen","to","many,","speak","to","a","few."
         };
-        int result=solution.numDecodings("1");
+        ListNode result=solution.reverseBetween(listNode,1,2);
 
 //        ListNode result=solution.reverseKGroup(listNode,3);
         System.out.println(result);
