@@ -4,9 +4,16 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution92 solution = new Solution92();
+        Solution93 solution = new Solution93();
         int[] nums = {1,1};
         int[] nums1 = {};
+        TreeNode treeNode1=new TreeNode(3);
+        TreeNode treeNode2=new TreeNode(4);
+        TreeNode treeNode3=new TreeNode(2);
+        treeNode1.left=new TreeNode(1);
+        treeNode1.right=treeNode2;
+        treeNode2.left=treeNode3;
+
         ListNode listNode=new ListNode(1);
         listNode.next=new ListNode(2);
         listNode.next.next=null;
@@ -32,7 +39,8 @@ public class Main {
         };
         String[] strings={"Listen","to","many,","speak","to","a","few."
         };
-        ListNode result=solution.reverseBetween(listNode,1,2);
+//        List<TreeNode> result=solution.generateTrees(5);
+        List<String> result=solution.restoreIpAddresses("25525511135");
 
 //        ListNode result=solution.reverseKGroup(listNode,3);
         System.out.println(result);
