@@ -4,7 +4,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution93 solution = new Solution93();
+        Solution87 solution = new Solution87();
         int[] nums = {1,1};
         int[] nums1 = {};
         TreeNode treeNode1=new TreeNode(3);
@@ -23,10 +23,19 @@ public class Main {
 //        listNode.next.next.next.next.next.next=null;
         String[] strs ={"ate"};
         char[][] sudu={
-                {'1','1','0','1','1'},
-                {'1','0','0','0','1'},
-                {'1','1','0','1','1'},
-                {'1','1','1','1','1'},
+//                {'1','0','1','0','1'},
+//                {'1','1','1','0','1'},
+//                {'1','1','1','0','1'},
+//                {'1','1','1','1','1'},
+                {'0','1','1','0','0','1','0','1','0','1'},
+                {'0','0','1','0','1','0','1','0','1','0'},
+                {'1','0','0','0','0','1','0','1','1','0'},
+                {'0','1','1','1','1','1','1','0','1','0'},
+                {'0','0','1','1','1','1','1','1','1','0'},
+                {'1','1','0','1','0','1','1','1','1','0'},
+                {'0','0','0','1','1','0','0','0','1','0'},
+                {'1','1','0','1','1','0','0','1','1','1'},
+                {'0','1','0','1','1','0','1','0','1','1'}
                 };
 
         int[][] martix={
@@ -40,7 +49,8 @@ public class Main {
         String[] strings={"Listen","to","many,","speak","to","a","few."
         };
 //        List<TreeNode> result=solution.generateTrees(5);
-        List<String> result=solution.restoreIpAddresses("25525511135");
+        boolean result=solution.isScramble("abc",
+                "bca");
 
 //        ListNode result=solution.reverseKGroup(listNode,3);
         System.out.println(result);

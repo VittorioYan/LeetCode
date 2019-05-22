@@ -7,7 +7,7 @@ class Solution85 {
         int result=0;
 
         int[][] longOne=new int[m][n];
-        int[] maxLine=new int[n];
+        int[][] maxLine=new int[m][n];
         for(int i=0;i<m;i++){
             for(int j=0;j<n;j++){
                 if(matrix[i][j]=='1'){
@@ -16,26 +16,17 @@ class Solution85 {
                 }
             }
         }
-        for (int j = 0; j < n; j++){
-            result=Integer.max(result,longOne[0][j]);
-            if(longOne[0][j]>0)maxLine[j]=1;
-        }
-        int temp;
-        for(int i=1;i<m;i++) {
-            for (int j = 0; j < n; j++) {
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
                 if(longOne[i][j]>0){
-                    maxLine[j]++;
-                    if(longOne[i][j]>longOne[i-1][j])temp=longOne[i-1][j];
-                    else temp=longOne[i][j];
-                    result=Integer.max(result,maxLine[j]*temp);
+                    int up=i,down=i;
+                    while(up>=0&&longOne[up][j]>=longOne[i][j])up--;
+                    while(down<m&&longOne[down][j]>=longOne[i][j])down++;
+                    maxLine[i][j]=down-up-1;
+                    result=Integer.max(result,maxLine[i][j]*longOne[i][j]);
                 }
-                else maxLine[j]=0;
-
             }
         }
-
-
-
         return result;
 
     }

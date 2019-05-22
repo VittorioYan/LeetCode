@@ -1,30 +1,31 @@
 class Solution87 {
-    boolean isScram(String s1,String s2,int len){
-        int lefrLen=len/2;
-        String s1Left=s1.substring(0,lefrLen);
-        String s1Right=s1.substring(lefrLen);
-        String s2Left=s2.substring(0,lefrLen);
-        String s2Right=s2.substring(lefrLen);
-        boolean leftSame=s1Left.equals(s2Left);
-        boolean rightSame=s1Right.equals(s2Right);
-        boolean s1Ls2R=s1Left.equals(s2Right);
+    boolean isScram(String s1,String s2){
+        int len=s1.length();
+        if(len==1)return s1.equals(s2);
+        if(len!=s2.length())return false;
+        boolean a,b=false;
+        if(len%2!=0)
+            return (isScram(s1.substring(0,len/2+1),s2.substring(len/2,len))&&
+                isScram(s1.substring(len/2,len),s2.substring(0,len/2+1)))||
+                (isScram(s1.substring(0,len/2+1),s2.substring(0,len/2+1))&&
+                isScram(s1.substring(len/2+1,len),s2.substring(len/2+1,len)))||
+               (isScram(s1.substring(0,len/2),s2.substring(0,len/2))&&
+                 isScram(s1.substring(len/2,len),s2.substring(len/2,len)))||
+                 (isScram(s1.substring(0,len/2),s2.substring(len/2+1,len))&&
+                 isScram(s1.substring(len/2+1,len),s2.substring(0,len/2)));
+
+        else return (isScram(s1.substring(0,len/2),s2.substring(0,len/2))&&
+                isScram(s1.substring(len/2,len),s2.substring(len/2,len)))||
+                (isScram(s1.substring(0,len/2),s2.substring(len/2,len))&&
+                 isScram(s1.substring(len/2,len),s2.substring(0,len/2)));
 
 
-        if(!s1Left.equals(s2Left)&&!s1Right.equals(s2Right)){
-
-        }
-
-        return true;
     }
 
     public boolean isScramble(String s1, String s2) {
-        int len1=s1.length();
-        int len2=s2.length();
-        if(len1==0||len2==0||len1!=len2)return false;
-
-
-
-        return isScram(s1,s2,len1);
+        if(s1==null||s2==null)return false;
+        if(s1.length()==0)return false;
+        return isScram(s1,s2);
 
     }
 }
