@@ -4,7 +4,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution87 solution = new Solution87();
+        Solution95 solution = new Solution95();
         int[] nums = {1,1};
         int[] nums1 = {};
         TreeNode treeNode1=new TreeNode(3);
@@ -49,8 +49,7 @@ public class Main {
         String[] strings={"Listen","to","many,","speak","to","a","few."
         };
 //        List<TreeNode> result=solution.generateTrees(5);
-        boolean result=solution.isScramble("abab",
-                "aabb");
+        List<TreeNode> result=solution.generateTrees(1);
 
 //        ListNode result=solution.reverseKGroup(listNode,3);
         System.out.println(result);
