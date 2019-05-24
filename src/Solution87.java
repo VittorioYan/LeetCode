@@ -3,16 +3,15 @@ class Solution87 {
         int len=s1.length();
         if(len==1)return s1.equals(s2);
         if(len!=s2.length())return false;
-        boolean a,b=false;
         if(len%2!=0)
             return (isScram(s1.substring(0,len/2+1),s2.substring(len/2,len))&&
-                isScram(s1.substring(len/2,len),s2.substring(0,len/2+1)))||
+                isScram(s1.substring(len/2+1,len),s2.substring(0,len/2)))||
                 (isScram(s1.substring(0,len/2+1),s2.substring(0,len/2+1))&&
                 isScram(s1.substring(len/2+1,len),s2.substring(len/2+1,len)))||
                (isScram(s1.substring(0,len/2),s2.substring(0,len/2))&&
                  isScram(s1.substring(len/2,len),s2.substring(len/2,len)))||
                  (isScram(s1.substring(0,len/2),s2.substring(len/2+1,len))&&
-                 isScram(s1.substring(len/2+1,len),s2.substring(0,len/2)));
+                 isScram(s1.substring(len/2,len),s2.substring(0,len/2+1)));
 
         else return (isScram(s1.substring(0,len/2),s2.substring(0,len/2))&&
                 isScram(s1.substring(len/2,len),s2.substring(len/2,len)))||

@@ -49,8 +49,8 @@ public class Main {
         String[] strings={"Listen","to","many,","speak","to","a","few."
         };
 //        List<TreeNode> result=solution.generateTrees(5);
-        boolean result=solution.isScramble("abc",
-                "bca");
+        boolean result=solution.isScramble("abab",
+                "aabb");
 
 //        ListNode result=solution.reverseKGroup(listNode,3);
         System.out.println(result);
