@@ -11,99 +11,77 @@ import java.util.List;
  * }
  */
 class Solution95 {
-    TreeNode mostRight(TreeNode root){
-        TreeNode temp=root;
-        while(temp.right!=null)temp=temp.right;
-        return temp;
-    }
-    TreeNode mostLeft(TreeNode root){
-        TreeNode temp=root;
-        while(temp.left!=null)temp=temp.left;
-        return temp;
-    }
-    TreeNode copyTree(TreeNode root){
+    TreeNode addTree(TreeNode root,int add){
         if(root==null)return null;
-        TreeNode temp=new TreeNode(root.val);
-        if(root.right!=null)temp.right=copyTree(root.right);
-        if(root.left!=null)temp.left=copyTree(root.left);
+        TreeNode temp=new TreeNode(root.val+add);
+        if(root.right!=null)temp.right=addTree(root.right,add);
+        if(root.left!=null)temp.left=addTree(root.left,add);
         return temp;
     }
+
 
 
     public List<TreeNode> generateTrees(int n) {
-        List<List<TreeNode>> treeMax=new ArrayList<>();
-        List<List<TreeNode>> treeMin=new ArrayList<>();
+        if(n==0)return (new ArrayList<>());
+        if(n==1){
+            List<TreeNode> temp=new ArrayList<>();
+            temp.add(new TreeNode(1));
+            return temp;
+        }
 
+//        List<List<TreeNode>> treeMax=new ArrayList<>();
+
+//        List<TreeNode> maxPointTree=new ArrayList<>();
+//        treeMax.add(new ArrayList<>());
+
+//        TreeNode maxTree=new TreeNode(n);
+
+//        maxPointTree.add(maxTree);
+//        treeMax.add(maxPointTree);
+
+        List<List<TreeNode>> treeMin=new ArrayList<>();
         List<TreeNode> minPointTree=new ArrayList<>();
-        List<TreeNode> maxPointTree=new ArrayList<>();
-        List<TreeNode> result=new ArrayList<>();
-        treeMax.add(new ArrayList<>());
         treeMin.add(new ArrayList<>());
         TreeNode minTree=new TreeNode(1);
-        TreeNode maxTree=new TreeNode(n);
         minPointTree.add(minTree);
         treeMin.add(minPointTree);
 
-        maxPointTree.add(maxTree);
-        treeMax.add(maxPointTree);
-
-        for(int i=2;i<=n;i++){
+        for(int theNum=2;theNum<=n;theNum++){
             minPointTree=new ArrayList<>();
-            List<TreeNode> tempMin=treeMin.get(i-1);
-            for(int j=0;j<tempMin.size();j++){
-                TreeNode temp1=new TreeNode(i);
-                temp1.left=tempMin.get(j);
-                minPointTree.add(temp1);
-                TreeNode temp2=copyTree(tempMin.get(j));
-                mostRight(temp2).right=new TreeNode(i);
-                minPointTree.add(temp2);
+            for(int i=1;i<=theNum;i++){
+                List<TreeNode> tempTreeMin=treeMin.get(i-1);
+                List<TreeNode> tempTreeMax=treeMin.get(theNum-i);
+
+                if(tempTreeMin.size()==0){
+                    for (TreeNode thisTurn:tempTreeMax) {
+                        TreeNode temp=new TreeNode(i);
+                        temp.left=null;
+                        temp.right=addTree(thisTurn,i);
+                        minPointTree.add(temp);
+                    }
+                }
+                if(tempTreeMax.size()==0){
+                    for (TreeNode thisTurn:tempTreeMin) {
+                        TreeNode temp=new TreeNode(i);
+                        temp.left=addTree(thisTurn,0);
+                        temp.right=null;
+                        minPointTree.add(temp);
+                    }
+                }
+                for(int j=0;j<tempTreeMin.size();j++){
+                    for(int k=0;k<tempTreeMax.size();k++){
+                        TreeNode temp=new TreeNode(i);
+                        temp.left=addTree(tempTreeMin.get(j),0);
+                        temp.right=addTree(tempTreeMax.get(k),i);
+                        minPointTree.add(temp);
+                    }
+                }
             }
             treeMin.add(minPointTree);
-        }
-        for(int i=2;i<=n;i++){
-            maxPointTree=new ArrayList<>();
-            List<TreeNode> tempMax=treeMax.get(i-1);
-            for(int j=0;j<tempMax.size();j++){
-                TreeNode temp1=new TreeNode(n-i+1);
-                temp1.right=tempMax.get(j);
-                maxPointTree.add(temp1);
-                TreeNode temp2=copyTree(tempMax.get(j));
-                mostLeft(temp2).left=new TreeNode(n-i+1);
-                maxPointTree.add(temp2);
-            }
-            treeMax.add(maxPointTree);
+
         }
 
-        for(int i=1;i<=n;i++){
-            List<TreeNode> tempLeft=treeMin.get(i-1);
-            List<TreeNode> tempRight=treeMax.get(n-i);
-            if(tempLeft.size()==0){
-                for(int k=0;k<tempRight.size();k++){
-                    TreeNode temp=new TreeNode(i);
-                    temp.left=null;
-                    temp.right=tempRight.get(k);
-                    result.add(temp);
-                }
-            }
-            if(tempRight.size()==0){
-                for(int k=0;k<tempLeft.size();k++){
-                    TreeNode temp=new TreeNode(i);
-                    temp.left=tempLeft.get(k);
-                    temp.right=null;
-                    result.add(temp);
-                }
-            }
+        return minPointTree;
 
-            for(int j=0;j<tempLeft.size();j++){
-                for(int k=0;k<tempRight.size();k++){
-                    TreeNode temp=new TreeNode(i);
-                    temp.left=tempLeft.get(j);
-                    temp.right=tempRight.get(k);
-                    result.add(temp);
-                }
-            }
-        }
-
-        return result;
     }
 }
