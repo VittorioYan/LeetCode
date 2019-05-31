@@ -4,18 +4,21 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Solution104 solution = new Solution104();
-        int[] nums = {1,1};
+        Solution110 solution = new Solution110();
+        int[] nums = {0,1,2,3,4,5};
         int[] nums1 = {};
         TreeNode treeNode1=new TreeNode(1);
         TreeNode treeNode2=new TreeNode(2);
-        TreeNode treeNode3=new TreeNode(3);
+        TreeNode treeNode3=new TreeNode(2);
+
         treeNode1.left=treeNode2;
-        treeNode1.right=null;
-        treeNode2.left=treeNode3;
-        treeNode2.right=null;
-        treeNode3.left=new TreeNode(4);
-        treeNode3.right=null;
+        treeNode1.right=treeNode3;
+        TreeNode treeNode4=new TreeNode(3);
+        treeNode2.left=treeNode4;
+        treeNode4.left=new TreeNode(4);
+        treeNode2.right=new TreeNode(3);
+//        treeNode3.left=new TreeNode(4);
+        treeNode3.right=new TreeNode(4);
 
 
         ListNode listNode=new ListNode(1);
@@ -53,7 +56,7 @@ public class Main {
         String[] strings={"Listen","to","many,","speak","to","a","few."
         };
 //        List<TreeNode> result=solution.generateTrees(5);
-        int result=solution.maxDepth(treeNode1);
+        boolean result=solution.isBalanced(treeNode1);
 
 //        ListNode result=solution.reverseKGroup(listNode,3);
         System.out.println(result);
